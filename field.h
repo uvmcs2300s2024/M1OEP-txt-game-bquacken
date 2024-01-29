@@ -1,13 +1,11 @@
 #ifndef M1OEP_TXT_GAME_BQUACKEN_FIELD_H
 #define M1OEP_TXT_GAME_BQUACKEN_FIELD_H
 
-#include <random>
-
 class field{
     private:
-        bool carriageSearched;
-        bool fortressVisited;
-        bool cowsMilked;
+        bool carriageSearched = false;
+        bool fortressVisited = false;
+        bool cowsMilked = false;
 
     public:
 

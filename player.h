@@ -2,21 +2,23 @@
 #define M1OEP_TXT_GAME_BQUACKEN_PLAYER_H
 
 #include <vector>
+#include <iostream>
 #include "item.cpp"
+#include ""
 using namespace std;
 
 class player{
     private:
-        enum location{
+        enum locations{
             field, fieldFortress, caveEntrance, caveCavern, riverShore, riverCurrent,
             waterfallShore, waterfallLake,
         };
 
-        location playerLocation;
-        location respawnLocation;
+        locations playerLocation;
+        locations respawnLocation;
         int playerHealth;
         vector<item> inventory;
-        bool ishurt;
+        bool isWounded;
 
     public:
         /**
@@ -27,13 +29,23 @@ class player{
         /**
          * @return the current location of the player
          */
-        location getPLayerLocation();
+        locations getPLayerLocation();
 
-        location getRespawnLocation();
+        locations getRespawnLocation();
 
-        void setPlayerLocation();
+        void setPlayerLocation(locations pLocation);
 
-        void setRespawnLocation();
+        void setRespawnLocation(locations pResLocation);
+
+        int getPlayerHealth();
+
+        void damagePlayer(int pDmgAmount);
+
+        void woundPlayer();
+
+        void healPlayer(int pHealAmount);
+
+        friend ostream& operator<<(ostream& out, const player& you);
 
 
 };
