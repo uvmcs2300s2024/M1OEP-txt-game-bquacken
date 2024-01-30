@@ -1,6 +1,8 @@
+#include <iostream>
 #include "item.h"
 
-item::item(item::itemType pThisItem, int pNumItem) {
+
+item::item(itemType pThisItem, int pNumItem) {
     thisItem = pThisItem;
     numItem = pNumItem;
     if(thisItem == lantern||thisItem == cloak||thisItem == pocketBlackHole){
@@ -16,12 +18,15 @@ item::item(item::itemType pThisItem, int pNumItem) {
     }
 }
 
+//delegating constructors
+item::item(int pItemId) : item(itemType(pItemId),0){}
+
 string item::getItem() {
     return itemTypeNames[thisItem];//itemTypeNames is a vector
 }
 
-item::itemType item::getItemID() {
-    return thisItem;
+int item::getItemID() {
+    return int(thisItem);
 }
 
 int item::getNumItem() {
@@ -36,20 +41,4 @@ void item::setNumItem(int pNumItem) {
     numItem = pNumItem;
 }
 
-ostream& operator<<(ostream& out, item& i){
-    out << i.getItem() << "(" << i.getNumItem() << ")" << endl;
 
-    return out;
-}
-
-bool operator==(item& lhs, item& rhs){
-    return lhs.getItem() == rhs.getItem();
-}
-
-bool operator<(item& lhs, item& rhs){
-    return lhs.getNumItem() < rhs.getNumItem();
-}
-
-bool operator>(item& lhs, item& rhs){
-    return lhs.getNumItem() > rhs.getNumItem();
-}

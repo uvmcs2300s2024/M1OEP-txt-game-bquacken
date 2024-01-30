@@ -7,17 +7,16 @@
 
 using namespace std;
 
+static const vector<string> itemTypeNames = {"coin", "bandage", "potion", "bomb",
+                                             "knife","lantern", "cloak",
+                                             "Milk Bucket","Pocket Black Hole"};
+
+enum itemType{
+    coin, bandage, potion, bomb, knife,
+    lantern, cloak, milkBucket, pocketBlackHole
+};
+
 class item{
-
-public: enum itemType{
-        bomb, bandage, lantern, cloak, pocketBlackHole,
-        knife, coin, milkBucket, potion
-    };
-
-    const vector<string> itemTypeNames = {"Bomb","Bandage","Lantern","Cloak",
-                                          "Pocket Black Hole","Knife","coin",
-                                          "Milk Bucket","Potion"};
-
 private:
     itemType thisItem;
 
@@ -29,6 +28,7 @@ private:
 
 public:
 
+
     /**
      * constructor for an item Object
      * @param pThisItem what type of item it will be
@@ -36,6 +36,15 @@ public:
      * will also assign the value of maxNumItem
      */
     item(itemType pThisItem, int pNumItem);
+
+    /**
+     * constructor that takes an integer and applys that
+     * to the enumerated type itemType and has the amount of
+     * the item set to 0 idk what explicit does but
+     * clang-tidy was yelling at me
+     * @param pItemId the ID of the type of item
+     */
+    explicit item(int pItemId);
 
     /**
      * simple getter for thisItem variable to use in
@@ -48,7 +57,7 @@ public:
      * a getter that returns the enum #
      * @return the number assigned to the itemType
      */
-    itemType getItemID();
+    int getItemID();
 
     /**
      * getter for numItem variable
@@ -69,6 +78,23 @@ public:
      */
     void setNumItem(int pNumItem);
 
+    friend ostream& operator<<(ostream& out, item& i){
+        out << i.getItem() << "(" << i.getNumItem() << ")" << endl;
+
+        return out;
+    }
+
+    friend bool operator==(item& lhs, item& rhs){
+        return lhs.getItemID() == rhs.getItemID();
+    }
+
+    friend bool operator<(item& lhs, item& rhs){
+        return lhs.getNumItem() < rhs.getNumItem();
+    }
+
+    friend bool operator>(item& lhs, item& rhs){
+        return lhs.getNumItem() > rhs.getNumItem();
+    }
 
 };
 #endif //M1OEP_TXT_GAME_BQUACKEN_ITEMS_H

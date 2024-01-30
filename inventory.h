@@ -2,7 +2,7 @@
 #define M1OEP_TXT_GAME_BQUACKEN_INVENTORY_H
 
 #include <vector>
-#include "item.cpp"
+#include "item.h"
 
 using namespace std;
 
@@ -14,9 +14,9 @@ private:
 public:
     inventory();
 
-    bool pickUpItem(item pItem);
+    item pickUpItem(item& pItem);
 
-    void dropItem(item pItem,int pAmount);
+    bool dropItem(int pItemID,int pAmount);
 };
 
 #endif //M1OEP_TXT_GAME_BQUACKEN_INVENTORY_H
