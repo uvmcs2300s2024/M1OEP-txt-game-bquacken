@@ -10,11 +10,11 @@ player::player() {
 
 }
 
-player::locations player::getPLayerLocation() {
+locations player::getPLayerLocation() {
     return playerLocation;
 }
 
-player::locations player::getRespawnLocation() {
+locations player::getRespawnLocation() {
     return respawnLocation;
 }
 

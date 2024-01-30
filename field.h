@@ -1,6 +1,8 @@
 #ifndef M1OEP_TXT_GAME_BQUACKEN_FIELD_H
 #define M1OEP_TXT_GAME_BQUACKEN_FIELD_H
 
+#include "inventory.h"
+
 class field{
     private:
         bool carriageSearched = false;
@@ -11,7 +13,7 @@ class field{
 
         void visitFortress();
 
-        void milkCows();
+        void milkCows(inventory& i);
 
         void searchCarriage();
 

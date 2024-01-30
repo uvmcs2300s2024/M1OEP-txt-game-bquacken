@@ -4,15 +4,17 @@
 #include <vector>
 #include <iostream>
 #include "item.cpp"
-#include ""
+
 using namespace std;
+
+enum locations{
+    field, fieldFortress, caveEntrance, caveCavern, riverShore, riverCurrent,
+    waterfallShore, waterfallLake,
+};
 
 class player{
     private:
-        enum locations{
-            field, fieldFortress, caveEntrance, caveCavern, riverShore, riverCurrent,
-            waterfallShore, waterfallLake,
-        };
+
 
         locations playerLocation;
         locations respawnLocation;

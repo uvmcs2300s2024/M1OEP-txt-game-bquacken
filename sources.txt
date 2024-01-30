@@ -1,0 +1,2 @@
+delegated constructors
+https://stackoverflow.com/questions/308276/can-i-call-a-constructor-from-another-constructor-do-constructor-chaining-in-c
