@@ -12,6 +12,7 @@ class inventory{
 private:
 
     vector<item> storedItems;
+    bool hasMap;
 
 public:
     inventory();
@@ -21,18 +22,17 @@ public:
     bool dropItem(int pItemID,int pAmount);
 
     friend ostream& operator<<(ostream& out, inventory& i){
-        out << "Your Inventory:\n"
-            << i.storedItems[0]
-            << i.storedItems[1]
-            << i.storedItems[2]
-            << i.storedItems[3]
-            << i.storedItems[4]
-            << i.storedItems[5]
-            << i.storedItems[6]
-            << i.storedItems[7];
+        out << "Your Inventory:\n";
+            for(item obj:i.storedItems){
+                out << obj;
+            }
 
         return out;
     }
+
+    bool getHasMap();
+
+    void obtainMap();
 
 };
 

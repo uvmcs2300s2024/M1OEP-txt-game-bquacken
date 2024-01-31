@@ -8,6 +8,7 @@ inventory::inventory() {
     for(int i = 0; i < 8; i++){
         storedItems.emplace_back(i);
     }
+    hasMap = false;
 }
 
 item inventory::pickUpItem(item pItem) {
@@ -30,5 +31,19 @@ item inventory::pickUpItem(item pItem) {
 }
 
 bool inventory::dropItem(int pItemID, int pAmount) {
+    item& yourItem = storedItems[pItemID];
+    if(pAmount > yourItem.getNumItem()){
+        return false;
+    }else{
+        yourItem.setNumItem(yourItem.getNumItem() - pAmount);
+        return true;
+    }
+}
 
+bool inventory::getHasMap() {
+    return hasMap;
+}
+
+void inventory::obtainMap() {
+    hasMap = true;
 }

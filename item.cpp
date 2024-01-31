@@ -44,4 +44,3 @@ void item::setNumItem(int pNumItem) {
     numItem = pNumItem;
 }
 
-

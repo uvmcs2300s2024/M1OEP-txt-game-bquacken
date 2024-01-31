@@ -8,17 +8,20 @@
 using namespace std;
 
 enum locations{
-    starting
+    grassLands, darkCaves
 };
+
+vector<string> locationNames ={"Grasslands","Cave","Town","City","Tower"};
 
 class player{
     private:
 
 
-        locations playerLocation;
-        locations respawnLocation;
-        int playerHealth;
-        bool isWounded;
+    locations playerLocation;
+    locations respawnLocation;
+    vector<locations> discoveredLocations;
+    int playerHealth;
+    bool isWounded;
 
     public:
         /**
@@ -37,7 +40,11 @@ class player{
 
         void setRespawnLocation(locations pResLocation);
 
+        vector<locations>& getDiscoveredLocations();
+
         int getPlayerHealth();
+
+        bool getIsWounded();
 
         void damagePlayer(int pDmgAmount);
 
@@ -45,7 +52,12 @@ class player{
 
         void healPlayer(int pHealAmount);
 
-        friend ostream& operator<<(ostream& out, const player& you);
+        friend ostream& operator<<(ostream& out, player& you){
+            out << "_____________________\n" <<
+                   "Health: " << you.getPlayerHealth() << endl;
+
+            return out;
+        }
 
 
 };

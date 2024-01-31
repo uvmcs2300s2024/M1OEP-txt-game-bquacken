@@ -9,11 +9,11 @@ using namespace std;
 
 static const vector<string> itemTypeNames = {"coin", "bandage", "potion", "bomb",
                                              "knife","lantern", "cloak",
-                                             "Milk Bucket","Pocket Black Hole"};
+                                             "Milk Bucket","map,""Pocket Black Hole"};
 
 enum itemType{
     coin, bandage, potion, bomb, knife,
-    lantern, cloak, milkBucket, pocketBlackHole
+    lantern, cloak, milkBucket, map, pocketBlackHole
 };
 
 class item{
@@ -86,14 +86,6 @@ public:
 
     friend bool operator==(item& lhs, item& rhs){
         return lhs.getItemID() == rhs.getItemID();
-    }
-
-    friend bool operator<(item& lhs, item& rhs){
-        return lhs.getNumItem() < rhs.getNumItem();
-    }
-
-    friend bool operator>(item& lhs, item& rhs){
-        return lhs.getNumItem() > rhs.getNumItem();
     }
 
 };

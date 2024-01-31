@@ -8,6 +8,7 @@ vector<string> fieldOptions = {"Milk cows","search carriage","go to fortress"};
 
 class field{
     private:
+        bool isActive = true;
         bool carriageSearched = false;
         bool fortressVisited = false;
         bool towerVisited = false;
@@ -16,9 +17,9 @@ class field{
 
     public:
 
-        field();
+        void init();
 
-        void visitFortress(inventory& i);
+        void visitFortress(inventory& i,player& p);
 
         void milkCows(inventory& i);
 
