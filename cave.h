@@ -6,6 +6,7 @@ using namespace std;
 
 class cave{
     private:
-        vector<bool> isVisited;
+        bool campsiteVisited;
+        bool darkCubbySearched;
 };
 #endif //M1OEP_TXT_GAME_BQUACKEN_CAVE_H

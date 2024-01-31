@@ -22,8 +22,7 @@ int main(){
         switch (you.getPLayerLocation()) {
             case(grassLands):
                 fieldArea.init();
-                char c = input().actionMenu(fieldOptions,you,sack, true, true);
-                switch (c) {
+                switch (input().actionMenu(fieldOptions,you,sack, true, true)) {
                     case('a'):
                         fieldArea.milkCows(sack);
                         break;
@@ -60,7 +59,9 @@ int main(){
                 }
                 break;
             case(darkCaves):
-
+                cout << "bye" << endl;
+                playing = false;
+                break;
         }
     }
 
