@@ -1,10 +1,10 @@
 #include "player.h"
-#include "item.cpp"
-#include "inventory.cpp"
+#include "item.h"
+#include "inventory.h"
 
 player::player() {
-    playerLocation = field;
-    respawnLocation = field;
+    playerLocation = starting;
+    respawnLocation = starting;
     playerHealth = 100;
     isWounded = false;
 

@@ -10,8 +10,8 @@ inventory::inventory() {
     }
 }
 
-item inventory::pickUpItem(item& pItem) {
-    item yourItem = storedItems[pItem.getItemID()];
+item inventory::pickUpItem(item pItem) {
+    item& yourItem = storedItems[pItem.getItemID()];
     if(yourItem == pItem){//kind of a redundant check but here for now
         int totalNum = yourItem.getNumItem() + pItem.getNumItem();
 

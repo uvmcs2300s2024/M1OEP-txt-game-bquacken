@@ -3,13 +3,12 @@
 
 #include <vector>
 #include <iostream>
-#include "item.cpp"
+#include "item.h"
 
 using namespace std;
 
 enum locations{
-    field, fieldFortress, caveEntrance, caveCavern, riverShore, riverCurrent,
-    waterfallShore, waterfallLake,
+    starting
 };
 
 class player{
@@ -19,7 +18,6 @@ class player{
         locations playerLocation;
         locations respawnLocation;
         int playerHealth;
-        vector<item> inventory;
         bool isWounded;
 
     public:

@@ -16,6 +16,9 @@ item::item(itemType pThisItem, int pNumItem) {
     } else {
         maxNumItem = 999;
     }
+    if(numItem > maxNumItem){
+        numItem = maxNumItem;
+    }
 }
 
 //delegating constructors

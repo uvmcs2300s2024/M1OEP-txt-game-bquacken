@@ -12,20 +12,18 @@
 #include "player.h"
 #include "item.h"
 
+vector<string> optionsKey = {"a)","b)","c)","d)","e)","f)","g)","h)","i)","j)","k)","l)","m)"};
+
 class input{
 public:
-    /**
-     * the action menu that will include all actions
-     * possible in the area the player is in
-     * @param pLoc the players location
-     * @return the choice inputted
-     */
-    char actionMenu(locations pLoc);
 
     /**
-     * will include inventory operations
-     * @return the choice inputted
+     * takes a vector of strings that tell the player
+     * what their options are and runs input validation on it
+     * @param options the vecotor of options that will be printed
+     * @return the option the player chose(is input validated)
      */
-    char inventoryMenu();
+    char actionMenu(vector<string> options);
+
 };
 #endif //M1OEP_TXT_GAME_BQUACKEN_INPUT_H

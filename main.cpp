@@ -12,6 +12,11 @@ using namespace std;
 
 int main(){
 
+    input choose;
+    player you = player();
+    inventory sack = inventory();
+
+    field();
 
 
     return 0;
