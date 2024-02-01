@@ -32,7 +32,8 @@ void field::searchCarriage(inventory& i) {
         cout << "There is nothing left here" << endl;
     }else {
         carriageSearched = true;
-        int coinAmount = rand() % 26;
+        srand(time(NULL));
+        int coinAmount = rand() % 25 + 1;
         cout << "you found:\ncoins(" << coinAmount << ")\nknife(1)" << endl;
         i.pickUpItem(item(coin,coinAmount));
         i.pickUpItem(item(knife,1));
@@ -56,7 +57,8 @@ void field::visitFortress(inventory& i,player& p) {
                 }else{
                     encampmentVisited = true;
                     cout << "you walk through rows of collapsing tents with muddy clothes strewn about" << endl;
-                    int coinAmount = rand() % 51;
+                    srand(time(NULL));
+                    int coinAmount = rand() % 50 + 1;
                     cout << "you find a small purse containing:\ncoins(" << coinAmount << ")" << endl;
                     cout << "At the end of the row of tents you find some fresh bandages:\nbandages(2)" << endl;
                     i.pickUpItem(item(coin,coinAmount));
