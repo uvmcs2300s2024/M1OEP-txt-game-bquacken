@@ -50,7 +50,7 @@ void field::visitFortress(inventory& i,player& p) {
                 "maybe they left something behind?" <<endl;
         fortressVisited = true;
         char playerChoice = input().actionMenu(fortressOptions,p,i,false, true);
-        while(playerChoice == 'a' || playerChoice == 'b'){
+        while(playerChoice == 'a' || playerChoice == 'b'||playerChoice == 'i'){
             if(playerChoice == 'a'){
                 if(encampmentVisited){
                     cout << "there is nothing left but ruined clothes and tents" << endl;

@@ -11,23 +11,19 @@ inventory::inventory() {
     hasMap = false;
 }
 
-item inventory::pickUpItem(item pItem) {
+void inventory::pickUpItem(item pItem) {
     item& yourItem = storedItems[pItem.getItemID()];
     if(yourItem == pItem){//kind of a redundant check but here for now
         int totalNum = yourItem.getNumItem() + pItem.getNumItem();
-
         if(totalNum > yourItem.getMaxNumItem()){
             yourItem.setNumItem(yourItem.getMaxNumItem());
-            pItem.setNumItem((yourItem.getNumItem() + pItem.getNumItem()) -
-                             pItem.getMaxNumItem());
-            return pItem;
+            return;
         } else {
             yourItem.setNumItem(yourItem.getNumItem() + pItem.getNumItem());
-            pItem.setNumItem(0);
-            return pItem;
+            return;
         }
     }
-    return pItem;
+    return;
 }
 
 bool inventory::dropItem(int pItemID, int pAmount) {
@@ -38,12 +34,4 @@ bool inventory::dropItem(int pItemID, int pAmount) {
         yourItem.setNumItem(yourItem.getNumItem() - pAmount);
         return true;
     }
-}
-
-bool inventory::getHasMap() {
-    return hasMap;
-}
-
-void inventory::obtainMap() {
-    hasMap = true;
 }

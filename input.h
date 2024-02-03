@@ -28,7 +28,11 @@ public:
      */
     char actionMenu(vector<string> options, player& p,
                     inventory& i,bool showMap,bool showInventory);
-
+    /**
+     * The input that displays the map options
+     * @param p a player object to allow access of discoveredLocations
+     * @return the users choice with input validation
+     */
     char mapMenu(player& p);
 };
 #endif //M1OEP_TXT_GAME_BQUACKEN_INPUT_H

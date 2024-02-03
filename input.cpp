@@ -46,7 +46,7 @@ char input::actionMenu(vector<std::string> options,player& p,
             if(choice[0] == 'i' && showInventory){
                 cout << i <<endl;
                 cout << bar;
-                return '1';
+                return 'i';
             }
             cout << "not an accepted answer" << endl;
         }
