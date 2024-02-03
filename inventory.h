@@ -12,7 +12,6 @@ class inventory{
 private:
 
     vector<item> storedItems;
-    bool hasMap;
 
 public:
     /**

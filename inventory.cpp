@@ -8,7 +8,7 @@ inventory::inventory() {
     for(int i = 0; i < 8; i++){
         storedItems.emplace_back(i);
     }
-    hasMap = false;
+
 }
 
 void inventory::pickUpItem(item pItem) {

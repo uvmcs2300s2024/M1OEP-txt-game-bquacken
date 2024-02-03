@@ -22,7 +22,8 @@ int main(){
         switch (you.getPLayerLocation()) {
             case(grassLands):
                 fieldArea.init();
-                switch (input().actionMenu(fieldOptions,you,sack, true, true)) {
+                switch (input().actionMenu(fieldOptions,you,sack,
+                                           true, true)) {
                     case('a'):
                         fieldArea.milkCows(sack);
                         break;
@@ -33,8 +34,6 @@ int main(){
                         fieldArea.visitFortress(sack,you);
                         break;
                     case('i'):
-                        cout << you;
-                        cout << sack;
                         break;
                     case('m'):
                         char travel = input().mapMenu(you);
@@ -44,8 +43,9 @@ int main(){
                                 break;
                             case('b'):
                                 cout << "are you sure?" << endl;
-                                char check = input().actionMenu({"Leave","Stay"},you,sack,
-                                                                false, false);
+                                char check = input().actionMenu({"Leave","Stay"},you,
+                                                                sack,false,
+                                                                false);
                                 switch(check){
                                     case('a'):
                                         you.setPlayerLocation(darkCaves);
