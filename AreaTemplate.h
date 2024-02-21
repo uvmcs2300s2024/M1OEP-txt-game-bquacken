@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include "string.h"
+#include "input.h"
 #include "Enemy.h"
 using std::string,std::cout,std::endl,std::vector;
 
@@ -18,14 +19,16 @@ private:
     vector<string> options;
 
 public:
-    AreaTemplate(string mainTxt, vector<SubAreaTemplate> subAreas,
+    AreaTemplate(string mainText, vector<SubAreaTemplate> subAreas,
                  vector<string> options);
 
-    void init();
+    void run(player& p);
 
     vector<SubAreaTemplate> getSubAreas();
 
     vector<string> getOptions();
+
+    void addSubArea(SubAreaTemplate pSubArea);
 
 };
 

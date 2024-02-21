@@ -47,7 +47,7 @@ void field::visitFortress(player& p) {
                 "There is an area with tattered tents sprawled out and a rickety watchtower.\n" <<
                 "maybe they left something behind?" <<endl;
         fortressVisited = true;
-        char playerChoice = input().actionMenu(fortressOptions,p,p.getStuff(),false, true,true);
+        char playerChoice = input().actionMenu(fortressOptions,p,false, true,true);
         while(playerChoice != 'l'){
             if(playerChoice == 'a'){
                 if(encampmentVisited){
@@ -72,7 +72,7 @@ void field::visitFortress(player& p) {
 
                     cout << "With each step higher you feel the swaying of the tower in the wind.\n" <<
                          "At the top there is a small box that contains a potion and a worn map" << endl;
-                    i.pickUpItem(item(potion, 1));
+                    p.getStuff().pickUpItem(item(potion, 1));
                     p.getDiscoveredLocations().push_back(darkCaves);
 
                     cout << "you climb back down the tower shaking with each step\n" <<
@@ -81,7 +81,7 @@ void field::visitFortress(player& p) {
                     towerVisited = true;
                 }
             }
-            playerChoice = input().actionMenu(fortressOptions,p,p.getStuff(),false, true, true);
+            playerChoice = input().actionMenu(fortressOptions,p,false, true, true);
         }
     }
 }

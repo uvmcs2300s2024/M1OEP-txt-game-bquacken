@@ -21,7 +21,7 @@ int main(){
         switch (you.getPLayerLocation()) {
             case(grassLands):
                 fieldArea.init();
-                switch (input().actionMenu(fieldOptions,you,sack,
+                switch (input().actionMenu(fieldOptions,you,
                                            true, true, false)) {
                     case('a'):
                         fieldArea.milkCows(you.getStuff());
@@ -42,8 +42,7 @@ int main(){
                                 break;
                             case('b'):
                                 cout << "are you sure?" << endl;
-                                char check = input().actionMenu({"Leave","Stay"},you,
-                                                                you.getStuff(),false,
+                                char check = input().actionMenu({"Leave","Stay"},you,false,
                                                                 false, false);
                                 switch(check){
                                     case('a'):

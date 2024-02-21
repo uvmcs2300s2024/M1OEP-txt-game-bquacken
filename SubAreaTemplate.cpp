@@ -1,7 +1,7 @@
 #include "SubAreaTemplate.h"
 
 SubAreaTemplate::SubAreaTemplate(vector<vector<item>> items, std::string areaTxt, vector<std::string> options,
-                                 vector<string> optionsTxt, bool hasEncounter) {
+                                 vector<string> optionsTxt,bool hasEncounter) {
     this -> items = items;
     this -> areaTxt = areaTxt;
     this -> options = options;
@@ -12,24 +12,30 @@ SubAreaTemplate::SubAreaTemplate(vector<vector<item>> items, std::string areaTxt
     }
 }
 
-void SubAreaTemplate::visit() {
+void SubAreaTemplate::visit(player& p) {
     cout << areaTxt << endl;
-    switch (input().actionMenu(options,p,i,false,true, true)) {
-        case('a'):
+    bool active = true;
 
+    while(active){
+        char choice = input().actionMenu(options,p,p.getStuff(),false,true, true);
+        for(int i = 0; i < options.size(); i++){
+            if(optionsKey[i] == choice){
+                search(p,i * 2);
+            }
+        }
     }
 
 }
 
-void SubAreaTemplate::search(int lowerIndex) {
+void SubAreaTemplate::search(player& p, int lowerIndex) {
     if(isSearched[lowerIndex]){
         cout << optionsTxt[lowerIndex + 1] << endl;
     }else{
         cout << optionsTxt[lowerIndex] << endl;
-        if(!items[0].empty()){
+        if(!items[lowerIndex].empty()){
             cout << "You found: " << endl;
             for(item x:items[lowerIndex]){
-                i.pickUpItem(x);
+                p.getStuff().pickUpItem(x);
                 cout << x << endl;
             }
         }

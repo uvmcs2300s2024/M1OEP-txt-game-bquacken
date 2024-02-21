@@ -15,7 +15,7 @@
 string bar = "_________________________________________\n";
 
 
-vector<string> optionsKey = {"a)","b)","c)","d)","e)","f)","g)","h)","i)","j)","k)","l)","m)"};
+vector<char> optionsKey = {'a','b','c','d','e','f','g','h'};
 
 class input{
 public:
@@ -26,8 +26,7 @@ public:
      * @param options the vecotor of options that will be printed
      * @return the option the player chose(is input validated)
      */
-    char actionMenu(vector<string> options, player& p,
-                    inventory& i,bool showMap,bool showInventory,
+    char actionMenu(vector<string> options, player& p, bool showMap,bool showInventory,
                     bool isSubArea);
     /**
      * The input that displays the map options

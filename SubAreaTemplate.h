@@ -26,12 +26,11 @@ private:
 public:
 
     SubAreaTemplate(vector<vector<item>> items, string areaTxt, vector<string> options,
-                    vector<string> optionsTxt,  player& p, inventory& i,
-                    bool hasEncounter);
+                    vector<string> optionsTxt,bool hasEncounter);
 
-    void visit();
+    void visit(player& p);
 
-    void search(int lowerIndex);
+    void search(player& p, int lowerIndex);
 
     bool getHasEncounter();
 

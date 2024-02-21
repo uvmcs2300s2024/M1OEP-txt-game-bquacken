@@ -10,15 +10,15 @@ using namespace std;
 
 
 char input::actionMenu(vector<std::string> options,player& p,
-                       inventory& i,bool showMap,bool showInventory,
+                       bool showMap,bool showInventory,
                        bool isSubArea) {
     vector<char> acceptedChoices;
     string choice;
     cout << bar;
 
     for(int i = 0; i < options.size(); i++){
-        cout << optionsKey[i] << options[i] << endl;
-        acceptedChoices.push_back(optionsKey[i][0]);
+        cout << optionsKey[i] << ")" << options[i] << endl;
+        acceptedChoices.push_back(optionsKey[i]);
     }
 
     if(isSubArea){
@@ -50,7 +50,7 @@ char input::actionMenu(vector<std::string> options,player& p,
                 }
             }
             if(choice[0] == 'i' && showInventory){
-                cout << i <<endl;
+                cout << p.getStuff() <<endl;
                 cout << bar;
                 return 'i';
             }
@@ -67,7 +67,7 @@ char input::mapMenu(player& p) {
     cout << bar;
     for(locations l:p.getDiscoveredLocations()){
         cout << optionsKey[(int)l] << locationNames[(int)l] << endl;
-        acceptedChoices.push_back(optionsKey[(int)l][0]);
+        acceptedChoices.push_back(optionsKey[(int)l]);
     }
     cout << "input the letter of your action:";
     while(getline(cin,choice)){
