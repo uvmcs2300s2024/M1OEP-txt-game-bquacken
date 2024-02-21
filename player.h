@@ -16,7 +16,7 @@ vector<string> locationNames ={"Grasslands","Cave","Town","City","Tower"};
 class player{
     private:
 
-
+    inventory yourStuff;
     locations playerLocation;
     locations respawnLocation;
     vector<locations> discoveredLocations;
@@ -65,6 +65,14 @@ class player{
          * @return playerHealth var
          */
         int getPlayerHealth();
+
+        /**
+         *
+         * @return a pointer to the players inventory
+         */
+        inventory& getStuff(){
+            return yourStuff;
+        }
 
         /**
          * @return if the player is wounded or not

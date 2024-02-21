@@ -1,7 +1,5 @@
 #include <random>
-#include <iostream>
 #include <vector>
-#include <cstdlib>
 
 #include "field.h"
 #include "inventory.h"
@@ -40,8 +38,8 @@ void field::searchCarriage(inventory& i) {
     }
 }
 
-void field::visitFortress(inventory& i,player& p) {
-    vector<string> fortressOptions = {"search tents","climb the tower","leave"};
+void field::visitFortress(player& p) {
+    vector<string> fortressOptions = {"search tents","climb the tower"};
     if(fortressVisited && encampmentVisited && towerVisited){
         cout << "There is nothing left here" << endl;
     } else {
@@ -49,8 +47,8 @@ void field::visitFortress(inventory& i,player& p) {
                 "There is an area with tattered tents sprawled out and a rickety watchtower.\n" <<
                 "maybe they left something behind?" <<endl;
         fortressVisited = true;
-        char playerChoice = input().actionMenu(fortressOptions,p,i,false, true);
-        while(playerChoice == 'a' || playerChoice == 'b'||playerChoice == 'i'){
+        char playerChoice = input().actionMenu(fortressOptions,p,p.getStuff(),false, true,true);
+        while(playerChoice != 'l'){
             if(playerChoice == 'a'){
                 if(encampmentVisited){
                     cout << "there is nothing left but ruined clothes and tents" << endl;
@@ -61,8 +59,8 @@ void field::visitFortress(inventory& i,player& p) {
                     int coinAmount = rand() % 50 + 1;
                     cout << "you find a small purse containing:\ncoins(" << coinAmount << ")" << endl;
                     cout << "At the end of the row of tents you find some fresh bandages:\nbandages(2)" << endl;
-                    i.pickUpItem(item(coin,coinAmount));
-                    i.pickUpItem(item(bandage,2));
+                    p.getStuff().pickUpItem(item(coin,coinAmount));
+                    p.getStuff().pickUpItem(item(bandage,2));
                 }
             } else if (playerChoice == 'b') {
                 if (towerVisited) {
@@ -83,7 +81,7 @@ void field::visitFortress(inventory& i,player& p) {
                     towerVisited = true;
                 }
             }
-            playerChoice = input().actionMenu(fortressOptions,p,i,false, true);
+            playerChoice = input().actionMenu(fortressOptions,p,p.getStuff(),false, true, true);
         }
     }
 }

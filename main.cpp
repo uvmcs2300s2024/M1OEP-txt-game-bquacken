@@ -13,7 +13,6 @@ using namespace std;
 int main(){
 
     player you = player();
-    inventory sack = inventory();
     you.getDiscoveredLocations().push_back(grassLands);
     bool playing = true;
     field fieldArea;
@@ -23,15 +22,15 @@ int main(){
             case(grassLands):
                 fieldArea.init();
                 switch (input().actionMenu(fieldOptions,you,sack,
-                                           true, true)) {
+                                           true, true, false)) {
                     case('a'):
-                        fieldArea.milkCows(sack);
+                        fieldArea.milkCows(you.getStuff());
                         break;
                     case('b'):
-                        fieldArea.searchCarriage(sack);
+                        fieldArea.searchCarriage(you.getStuff());
                         break;
                     case('c'):
-                        fieldArea.visitFortress(sack,you);
+                        fieldArea.visitFortress(you);
                         break;
                     case('i'):
                         break;
@@ -44,8 +43,8 @@ int main(){
                             case('b'):
                                 cout << "are you sure?" << endl;
                                 char check = input().actionMenu({"Leave","Stay"},you,
-                                                                sack,false,
-                                                                false);
+                                                                you.getStuff(),false,
+                                                                false, false);
                                 switch(check){
                                     case('a'):
                                         you.setPlayerLocation(darkCaves);

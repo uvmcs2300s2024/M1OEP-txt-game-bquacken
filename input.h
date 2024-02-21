@@ -27,7 +27,8 @@ public:
      * @return the option the player chose(is input validated)
      */
     char actionMenu(vector<string> options, player& p,
-                    inventory& i,bool showMap,bool showInventory);
+                    inventory& i,bool showMap,bool showInventory,
+                    bool isSubArea);
     /**
      * The input that displays the map options
      * @param p a player object to allow access of discoveredLocations

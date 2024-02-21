@@ -10,7 +10,8 @@ using namespace std;
 
 
 char input::actionMenu(vector<std::string> options,player& p,
-                       inventory& i,bool showMap,bool showInventory) {
+                       inventory& i,bool showMap,bool showInventory,
+                       bool isSubArea) {
     vector<char> acceptedChoices;
     string choice;
     cout << bar;
@@ -18,6 +19,11 @@ char input::actionMenu(vector<std::string> options,player& p,
     for(int i = 0; i < options.size(); i++){
         cout << optionsKey[i] << options[i] << endl;
         acceptedChoices.push_back(optionsKey[i][0]);
+    }
+
+    if(isSubArea){
+        cout << "l)leave" << endl;
+        acceptedChoices.push_back('l');
     }
 
     if(showInventory){

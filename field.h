@@ -31,7 +31,7 @@ class field{
          * to the inventory
          * @param p needed to edit the discoveredLocations vector
          */
-        void visitFortress(inventory& i,player& p);
+        void visitFortress(player& p);
 
         /**
          * milks the cows

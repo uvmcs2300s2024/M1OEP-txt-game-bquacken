@@ -3,6 +3,7 @@
 #include "inventory.h"
 
 player::player() {
+    yourStuff = inventory();
     playerLocation = grassLands;
     respawnLocation = grassLands;
     playerHealth = 100;
