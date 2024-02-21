@@ -13,8 +13,12 @@ void AreaTemplate::run(player& p) {
     while(active){
         char choice = input().actionMenu(options,p,true,true,false);
         for(int i = 0; i < options.size(); i++){
-            if(optionsKey[i][0] == choice){
-                subAreas[i].visit(p);
+            if(optionsKey[i] == choice){
+                if(subAreas[i].getOptionsIsEmpty()){
+                    subAreas[i].search(p,0);
+                }else{
+                    subAreas[i].visit(p);
+                }
             }
         }
         if(choice == 'm'){

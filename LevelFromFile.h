@@ -10,6 +10,11 @@ using std::string,std::cout,std::endl;
 
 class LevelFromFile{
 public:
+    /**
+     * takes a file with specific formatting and
+     * creates a level of the text game
+     * @param file the file that is read from
+     */
     AreaTemplate buildArea(string file);
 
 };
