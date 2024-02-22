@@ -20,13 +20,18 @@ private:
 
 public:
     /**
-     * default constructor
+     * constructor
      * @param mainText sets the mainText string
      * @param subAreas sets the subAreas vector
      * @param options sets the options vector
      */
     AreaTemplate(string mainText, vector<SubAreaTemplate> subAreas,
                  vector<string> options);
+
+    /**
+     * default constructor;
+     */
+    AreaTemplate();
 
     /**
      * runs the area allowing the player to explore
@@ -52,7 +57,13 @@ public:
      */
     void addSubArea(SubAreaTemplate pSubArea);
 
+    void addToOptionsList(string option);
+
+    void addMainText(string text);
+
     void addOption(string optionText, string optionTextVisited, item reward);
+
+    void setOptionsList(vector<string> list);
 
 };
 

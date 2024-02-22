@@ -27,3 +27,19 @@ void AreaTemplate::run(player& p) {
         }
     }
 }
+
+void AreaTemplate::addMainText(std::string text) {
+    mainText = text;
+}
+
+vector<string> AreaTemplate::getOptions() {
+    return options;
+}
+
+void AreaTemplate::addSubArea(SubAreaTemplate pSubArea) {
+    subAreas.push_back(pSubArea);
+}
+
+void AreaTemplate::setOptionsList(vector<std::string> list) {
+    options = list;
+}

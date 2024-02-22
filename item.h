@@ -37,6 +37,14 @@ public:
      */
     item(itemType pThisItem, int pNumItem);
 
+
+    /**
+     * constructor for an Item object using the itemID
+     * @param pItemId the ID of the enumerated type
+     * @param pNumItem the number of items
+     */
+    item(int pItemId, int pNumItem);
+
     /**
      * constructor that takes an integer and applys that
      * to the enumerated type itemType and has the amount of

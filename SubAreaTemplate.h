@@ -33,6 +33,7 @@ public:
      * @param areaTxt the text displayed in the subarea
      * @param options the options to explore in the sub area
      * @param optionsTxt the text that is displayed when the option is chosen
+     * even indexes are first visit text odd are once visited text
      * @param hasEncounter if the subarea has an encounter
      */
     SubAreaTemplate(vector<vector<item>> items, string areaTxt, vector<string> options,
@@ -45,6 +46,11 @@ public:
      * @param areaTxtVisited the text for the subarea after you have been there
      */
     SubAreaTemplate(vector<vector<item>> items, string areaTxt, string areaTxtVisited);
+
+    /**
+     * empty constructor
+     */
+    SubAreaTemplate();
 
     /**
      * runs the subarea
@@ -73,6 +79,16 @@ public:
     void setHasEncounter(bool hasEncounter);
 
     bool getOptionsIsEmpty();
+
+    void addItem(int index, item thing);
+
+    void addToOptionsList(string option);
+
+    void setOptionsList(vector<string> list);
+
+    void addToOptionsText(string text);
+
+    void setAreaText(string text);
 
 };
 #endif //TXT_GAME_BQUACKEN_SUBAREATEMPLATE_H

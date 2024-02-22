@@ -17,6 +17,16 @@ public:
      */
     AreaTemplate buildArea(string file);
 
+    SubAreaTemplate buildSubArea(ifstream& inFile);
+
+    SubAreaTemplate buildOption(ifstream& inFile);
+
+    string readText(ifstream& inFile);
+
+    vector<string> readOptions(ifstream& inFile);
+
+    item readItem(ifstream& inFile);
+
 };
 
 #endif //TXT_GAME_BQUACKEN_LEVELFROMFILE_H

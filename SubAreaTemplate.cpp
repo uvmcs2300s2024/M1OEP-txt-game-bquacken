@@ -52,3 +52,12 @@ void SubAreaTemplate::search(player& p, int lowerIndex) {
 bool SubAreaTemplate::getOptionsIsEmpty() {
     return options.empty();
 }
+
+void SubAreaTemplate::setOptionsList(vector<std::string> list) {
+    options = list;
+}
+
+void SubAreaTemplate::addItem(int index, item thing) {
+    items[index].push_back(thing);
+}
+
