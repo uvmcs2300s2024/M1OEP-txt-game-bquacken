@@ -1,8 +1,4 @@
-#include <vector>
-#include <iostream>
-
 #include "inventory.h"
-#include "item.h"
 
 inventory::inventory() {
     for(int i = 0; i < 8; i++){

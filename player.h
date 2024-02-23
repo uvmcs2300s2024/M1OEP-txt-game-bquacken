@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <iostream>
-#include "item.h"
+#include "inventory.h"
 
 using namespace std;
 
@@ -11,7 +11,6 @@ enum locations{
     grassLands, darkCaves
 };
 
-vector<string> locationNames ={"Grasslands","Cave","Town","City","Tower"};
 
 class player{
     private:
@@ -24,7 +23,10 @@ class player{
     bool isWounded;
 
     public:
-        /**
+
+    vector<string> locationNames ={"Grasslands","Cave","Town","City","Tower"};
+
+    /**
          * default constructor for player
          */
         player();

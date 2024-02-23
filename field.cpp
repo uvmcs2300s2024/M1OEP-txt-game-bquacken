@@ -1,9 +1,4 @@
-#include <random>
-#include <vector>
-
 #include "field.h"
-#include "inventory.h"
-#include "item.h"
 
 using namespace std;
 

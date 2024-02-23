@@ -1,8 +1,9 @@
 #ifndef M1OEP_TXT_GAME_BQUACKEN_FIELD_H
 #define M1OEP_TXT_GAME_BQUACKEN_FIELD_H
 
+#include <random>
 #include <vector>
-#include "inventory.h"
+#include "input.h"
 
 vector<string> fieldOptions = {"Milk cows","search carriage","go to fortress"};
 
@@ -46,6 +47,4 @@ class field{
         void searchCarriage(inventory& i);
 
 };
-
-
 #endif //M1OEP_TXT_GAME_BQUACKEN_FIELD_H

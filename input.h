@@ -7,18 +7,16 @@
 
 #include <iostream>
 #include <vector>
-
-#include "inventory.h"
 #include "player.h"
-#include "item.h"
-
-string bar = "_________________________________________\n";
 
 
-vector<char> optionsKey = {'a','b','c','d','e','f','g','h'};
 
 class input{
 public:
+
+    string bar = "_________________________________________\n";
+
+    vector<char> optionsKey = {'a','b','c','d','e','f','g','h'};
 
     /**
      * takes a vector of strings that tell the player

@@ -1,18 +1,25 @@
 #include <ostream>
 #include <iostream>
 
-#include "inventory.cpp"
-#include "item.cpp"
-#include "input.cpp"
-#include "player.cpp"
-#include "field.cpp"
-
+#include "LevelFromFile.h"
+#include "item.h"
+#include "player.h"
+#include "SubArea.h"
 
 using namespace std;
 
 int main(){
 
+    //Area a = LevelFromFile().buildArea("testLevel.txt");
+
+
+    SubArea s;
+    s = SubArea();
+    cout << "running" << endl;
+    s.addItem(0,item(1,1));
+
     player you = player();
+    /**
     you.getDiscoveredLocations().push_back(grassLands);
     bool playing = true;
     field fieldArea;
@@ -62,7 +69,7 @@ int main(){
                 break;
         }
     }
-
+    **/
 
 
 

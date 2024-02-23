@@ -3,9 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "AreaTemplate.h"
-#include "string"
-#include "player.h"
+#include "Area.h"
 using std::string,std::cout,std::endl;
 
 class LevelFromFile{
@@ -15,11 +13,11 @@ public:
      * creates a level of the text game
      * @param file the file that is read from
      */
-    AreaTemplate buildArea(string file);
+    Area buildArea(string file);
 
-    SubAreaTemplate buildSubArea(ifstream& inFile);
+    SubArea buildSubArea(ifstream& inFile);
 
-    SubAreaTemplate buildOption(ifstream& inFile);
+    SubArea buildOption(ifstream& inFile);
 
     string readText(ifstream& inFile);
 

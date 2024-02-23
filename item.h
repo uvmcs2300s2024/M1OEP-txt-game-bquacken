@@ -54,6 +54,8 @@ public:
      */
     explicit item(int pItemId);
 
+    item();
+
     /**
      * simple getter for thisItem variable to use in
      * printing the item type

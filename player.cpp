@@ -1,6 +1,4 @@
 #include "player.h"
-#include "item.h"
-#include "inventory.h"
 
 player::player() {
     yourStuff = inventory();

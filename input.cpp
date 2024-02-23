@@ -1,9 +1,6 @@
 #include <iostream>
 #include <vector>
 
-#include "inventory.h"
-#include "player.h"
-#include "item.h"
 #include "input.h"
 
 using namespace std;
@@ -66,7 +63,7 @@ char input::mapMenu(player& p) {
     string choice;
     cout << bar;
     for(locations l:p.getDiscoveredLocations()){
-        cout << optionsKey[(int)l] << locationNames[(int)l] << endl;
+        cout << optionsKey[(int)l] << player().locationNames[(int)l] << endl;
         acceptedChoices.push_back(optionsKey[(int)l]);
     }
     cout << "input the letter of your action:";

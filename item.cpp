@@ -23,6 +23,10 @@ item::item(itemType pThisItem, int pNumItem) {
 
 item::item(int pItemId, int pNumItem) : item(itemType(pItemId),pNumItem){}
 
+item::item() {
+    numItem = 0;
+}
+
 //delegating constructors
 item::item(int pItemId) : item(itemType(pItemId),0){}
 

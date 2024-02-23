@@ -2,12 +2,12 @@
 #include <fstream>
 #include "LevelFromFile.h"
 
-AreaTemplate LevelFromFile::buildArea(std::string file) {
+Area LevelFromFile::buildArea(std::string file) {
     ifstream inFile("../" + file);
 
     string line;
     getline(inFile,line);
-    AreaTemplate area = AreaTemplate();
+    Area area = Area();
 
     if(line == ">A"){
         getline(inFile,line);
@@ -23,11 +23,12 @@ AreaTemplate LevelFromFile::buildArea(std::string file) {
             }
         }
     }
+    return area;
 }
 
-SubAreaTemplate LevelFromFile::buildSubArea(std::ifstream &inFile) {
+SubArea LevelFromFile::buildSubArea(std::ifstream &inFile) {
     string line;
-    SubAreaTemplate subarea = SubAreaTemplate();
+    SubArea subarea = SubArea();
     getline(inFile,line);
     subarea.setAreaText(readText(inFile));
     bool consecutiveItems = false;
@@ -41,7 +42,7 @@ SubAreaTemplate LevelFromFile::buildSubArea(std::ifstream &inFile) {
             subarea.setOptionsList(readOptions(inFile));
         }else if(line =="-I"){
             if(consecutiveItems){
-
+                subarea.addItem(itemIndex, readItem(inFile));
             }else{
                 itemIndex++;
                 subarea.addItem(itemIndex, readItem(inFile));
@@ -52,15 +53,16 @@ SubAreaTemplate LevelFromFile::buildSubArea(std::ifstream &inFile) {
     return subarea;
 }
 
-SubAreaTemplate LevelFromFile::buildOption(std::ifstream &inFile) {
+SubArea LevelFromFile::buildOption(std::ifstream &inFile) {
     string line;
-    SubAreaTemplate o;
+    SubArea o;
     getline(inFile,line);
     if(line == "-T"){
         o.addToOptionsText(readText(inFile));
     }else if(line == "-I"){
         o.addItem(0,readItem(inFile));
     }
+    return o;
 }
 
 item LevelFromFile::readItem(std::ifstream &inFile) {

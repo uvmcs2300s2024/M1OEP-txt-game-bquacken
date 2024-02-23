@@ -1,19 +1,22 @@
-#include "AreaTemplate.h"
+#include "Area.h"
 
-AreaTemplate::AreaTemplate(std::string mainText,vector<SubAreaTemplate> subAreas,
-                           vector<string> options) {
+
+Area::Area(std::string mainText, vector<SubArea> subAreas,
+           vector<string> options) {
     this -> mainText = mainText;
     this -> subAreas = subAreas;
     this -> options = options;
 }
 
+Area::Area() {}
 
-void AreaTemplate::run(player& p) {
+
+void Area::run(player& p) {
     bool active = true;
     while(active){
         char choice = input().actionMenu(options,p,true,true,false);
         for(int i = 0; i < options.size(); i++){
-            if(optionsKey[i] == choice){
+            if(input().optionsKey[i] == choice){
                 if(subAreas[i].getOptionsIsEmpty()){
                     subAreas[i].search(p,0);
                 }else{
@@ -28,18 +31,30 @@ void AreaTemplate::run(player& p) {
     }
 }
 
-void AreaTemplate::addMainText(std::string text) {
+void Area::addMainText(std::string text) {
     mainText = text;
 }
 
-vector<string> AreaTemplate::getOptions() {
+vector<string> Area::getOptions() {
     return options;
 }
 
-void AreaTemplate::addSubArea(SubAreaTemplate pSubArea) {
+void Area::addSubArea(SubArea pSubArea) {
     subAreas.push_back(pSubArea);
 }
 
-void AreaTemplate::setOptionsList(vector<std::string> list) {
+void Area::setOptionsList(vector<std::string> list) {
     options = list;
+}
+
+void Area::addToOptionsList(std::string option) {
+    options.push_back(option);
+}
+
+vector<SubArea> Area::getSubAreas() {
+    return subAreas;
+}
+
+string Area::getMainText() {
+    return mainText;
 }

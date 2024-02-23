@@ -2,20 +2,17 @@
 // Created by Benjamin Quackenbush on 2/16/2024.
 //
 
-#ifndef TXT_GAME_BQUACKEN_AREATEMPLATE_H
-#define TXT_GAME_BQUACKEN_AREATEMPLATE_H
-
+#ifndef TXT_GAME_BQUACKEN_AREA_H
+#define TXT_GAME_BQUACKEN_AREA_H
 #include <iostream>
 #include <vector>
-#include "string.h"
-#include "input.h"
-#include "Enemy.h"
+#include "SubArea.h"
 using std::string,std::cout,std::endl,std::vector;
 
-class AreaTemplate{
+class Area{
 private:
     string mainText;
-    vector<SubAreaTemplate> subAreas;
+    vector<SubArea> subAreas;
     vector<string> options;
 
 public:
@@ -25,13 +22,13 @@ public:
      * @param subAreas sets the subAreas vector
      * @param options sets the options vector
      */
-    AreaTemplate(string mainText, vector<SubAreaTemplate> subAreas,
-                 vector<string> options);
+    Area(string mainText, vector<SubArea> subAreas,
+         vector<string> options);
 
     /**
      * default constructor;
      */
-    AreaTemplate();
+    Area();
 
     /**
      * runs the area allowing the player to explore
@@ -43,7 +40,7 @@ public:
      * gets the subAreas vector
      * @return subAreas vector
      */
-    vector<SubAreaTemplate> getSubAreas();
+    vector<SubArea> getSubAreas();
 
     /**
      * gets the options vector
@@ -55,16 +52,17 @@ public:
      * adds a subarea to the subAreas vector
      * @param pSubArea the new subarea
      */
-    void addSubArea(SubAreaTemplate pSubArea);
+    void addSubArea(SubArea pSubArea);
 
     void addToOptionsList(string option);
 
     void addMainText(string text);
 
-    void addOption(string optionText, string optionTextVisited, item reward);
-
     void setOptionsList(vector<string> list);
+
+    string getMainText();
+
 
 };
 
-#endif //TXT_GAME_BQUACKEN_AREATEMPLATE_H
+#endif //TXT_GAME_BQUACKEN_AREA_H
