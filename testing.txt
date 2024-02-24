@@ -1,0 +1,60 @@
+>A
+-T
+Main text
+_T
+-L
+a
+b
+_L
+>S
+-T
+main subarea text
+_T
+-D
+true
+-L
+this
+is
+a
+test
+_L
+-T
+text for option 1
+second line
+_T
+-I
+1
+3
+_I
+-I
+0
+3
+_I
+-T
+been here already
+_T
+-T
+option 2 text
+_T
+-I
+3
+2
+_I
+-T
+been here already 2
+_T
+<S
+>O
+-T
+hey
+there
+_T
+-I
+0
+4
+_I
+-T
+hey again
+_T
+<O
+<A

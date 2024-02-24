@@ -90,6 +90,10 @@ void SubArea::setOptionsList(vector<std::string> list) {
             isSearched.push_back(false);
         }
     }
+    while(optionsTxt.size()/2 > options.size()){
+        optionsTxt.pop_back();
+        optionsTxt.pop_back();
+    }
     while(items.size()/3 != options.size()){
         if(items.size()/3 > options.size()){
             items.pop_back();

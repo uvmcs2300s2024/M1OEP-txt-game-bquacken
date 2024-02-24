@@ -9,11 +9,14 @@
 
 bool subAreaTest();
 bool areaTest();
+bool levelFromFileTest(string file);
 using namespace std;
 int main(){
 
-    //subAreaTest();
+
+    subAreaTest();
     areaTest();
+    levelFromFileTest("testing.txt");
     return 0;
 }
 
@@ -28,7 +31,7 @@ bool subAreaTest(){
     string a = "main txt";
     vector<string> b = {"option 1","option 2","option 3","option 4","option 5"};
     vector<string> c = {"option a1","option b1","option a2","option b2",
-                        "option a3","option b","option a4","option b4",
+                        "option a3","option b4","option a4","option b4",
                         "option a5","option b5"};
     s1.setOptionsList(b);
     if(!s1.setOptionsText(c)){
@@ -63,8 +66,6 @@ bool subAreaTest(){
         cout << "Failed complex constructor" << endl;
         passed = false;
     }
-    s1.setAreaText(a);
-    s1.visit(p);
     return passed;
 }
 
@@ -95,6 +96,40 @@ bool areaTest(){
     c.pop_back();
     if(a1.setOptionsList(c)){
         cout << "Failed setOptionsList" << endl;
+        passed = false;
+    }
+    return passed;
+}
+
+bool levelFromFileTest(string file){
+    bool passed = true;
+    Area a = LevelFromFile().buildArea(file);
+    if(a.getSubAreas().size() != 2){
+        passed = false;
+        cout << "Failed number of subareas" << endl;
+    }
+    if(a.getSubAreas()[0].getOptionsList()[1] != "is"){
+        passed = false;
+        cout << "Failed optionList for subArea 1" << endl;
+    }
+    if(a.getMainText() != "Main text\n"){
+        passed = false;
+        cout << "Failed MainText" << endl;
+    }
+    if(a.getOptions()[1] != "b"){
+        passed = false;
+        cout << "Failed optionsList" << endl;
+    }
+    if(!a.getSubAreas()[1].getOptionsIsEmpty()){
+        passed = false;
+        cout << "Failed buildOption" << endl;
+    }
+    if(a.getSubAreas()[1].getItems()[0].getItemID() != 0){
+        passed = false;
+        cout << "Failed item in buildOption" << endl;
+    }
+    if(a.getSubAreas()[0].getItems()[1]. getNumItem() != 3){
+        cout << "Failed multiple items in buildSubArea" << endl;
         passed = false;
     }
     return passed;

@@ -102,5 +102,9 @@ public:
         return lhs.getItemID() == rhs.getItemID();
     }
 
+    friend bool operator !=(item& lhs, item& rhs){
+        return lhs.getItemID() != rhs.getItemID();
+    }
+
 };
 #endif //M1OEP_TXT_GAME_BQUACKEN_ITEMS_H
