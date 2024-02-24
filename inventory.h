@@ -36,6 +36,13 @@ public:
      */
     bool dropItem(int pItemID,int pAmount);
 
+    /**
+     * gets the vector of stored items
+     * @return a vector of items that is the players
+     * inventory
+     */
+    vector<item> getStoredItems();
+
     friend ostream& operator<<(ostream& out, inventory& i){
         out << "Your Inventory:\n";
             for(item obj:i.storedItems){

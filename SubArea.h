@@ -18,7 +18,7 @@ private:
     vector<string> optionsTxt;
     vector<bool> isSearched;
     bool hasEncounter;
-
+    bool isDark;
 public:
 
     /**
@@ -33,11 +33,10 @@ public:
 
     /**
      * simpler constructor used for subAreas that don't have any options
-     * @param items the items the player will receive
      * @param areaTxt the text for the subarea when you first go there
      * @param areaTxtVisited the text for the subarea after you have been there
      */
-    SubArea(vector<item> items, string areaTxt, string areaTxtVisited);
+    SubArea(string areaTxt, string areaTxtVisited);
 
     /**
      * empty constructor
@@ -93,6 +92,10 @@ public:
     vector<string> getOptionsText();
 
     vector<bool> getIsSearched();
+
+    void setDark(bool dark);
+
+    bool getIsDark();
 
 };
 #endif //TXT_GAME_BQUACKEN_SUBAREA_H

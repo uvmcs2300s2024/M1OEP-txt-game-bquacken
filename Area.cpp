@@ -31,24 +31,31 @@ void Area::run(player& p) {
     }
 }
 
-void Area::addMainText(std::string text) {
-    mainText = text;
-}
-
 vector<string> Area::getOptions() {
     return options;
 }
 
-void Area::addSubArea(SubArea pSubArea) {
-    subAreas.push_back(pSubArea);
+bool Area::addSubArea(SubArea pSubArea) {
+    if(subAreas.size() >= options.size()){
+        return false;
+    }else{
+        subAreas.push_back(pSubArea);
+        return true;
+    }
+
 }
 
-void Area::setOptionsList(vector<std::string> list) {
-    options = list;
+bool Area::setOptionsList(vector<std::string> list) {
+    if(list.size() < subAreas.size()){
+        return false;
+    }else{
+        options = list;
+        return true;
+    }
 }
 
 void Area::addToOptionsList(std::string option) {
-    options.push_back(option);
+
 }
 
 vector<SubArea> Area::getSubAreas() {
@@ -57,4 +64,8 @@ vector<SubArea> Area::getSubAreas() {
 
 string Area::getMainText() {
     return mainText;
+}
+
+void Area::setMainText(std::string text) {
+    mainText = text;
 }

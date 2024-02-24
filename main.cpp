@@ -10,15 +10,10 @@ using namespace std;
 
 int main(){
 
-    //Area a = LevelFromFile().buildArea("testLevel.txt");
-
-
-    SubArea s;
-    s = SubArea();
-    cout << "running" << endl;
-    s.addItem(0,item(1,1));
-
+    Area a = LevelFromFile().buildArea("testLevel.txt");
     player you = player();
+
+    a.run(you);
     /**
     you.getDiscoveredLocations().push_back(grassLands);
     bool playing = true;

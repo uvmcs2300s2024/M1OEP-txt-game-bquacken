@@ -31,3 +31,7 @@ bool inventory::dropItem(int pItemID, int pAmount) {
         return true;
     }
 }
+
+vector<item> inventory::getStoredItems() {
+    return storedItems;
+}

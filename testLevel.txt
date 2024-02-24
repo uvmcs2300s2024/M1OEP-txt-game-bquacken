@@ -1,2 +1,70 @@
 >A
+-T
+You drop into a small hole in the ground landing in a small puddle of water.
+The only light visible is coming from the hole. You see the scraps left of an
+old campsite. To your left is a rancid smelling cave, in front of you there is
+a wooden wall blocking a cave entrance and in the floor is a sloping cave that
+goes down until you can't see anymore.
+_T
+-L
+Go to the stinky cave
+Check the campsite
+_L
+>S
+-T
+You walk deeper into the cave the smell growing stronger
+the flickering of the lantern illuminates the walls and the strange
+fleshy growths along it
+_T
+-D
+true
+-L
+Touch the wall
+walk deeper
+_L
+-T
+You reach out and touch the wall it feels warm
+_T
+-I
+0
+0
+_I
+-T
+The wall still feels warm and alive
+_T
+-T
+as you walk farther the smell becomes unbearable until
+you reach a small chamber coated with a glistening material.
+At the far end of the chamber you see a corpse
+wedged into a small crack in the wall. As you get
+closer to the source of the smell you notice the tendrils converge
+on this rotten corpse you search inside its putrid smelling clothes.
+_T
+-I
+1
+2
+_I
+-I
+0
+7
+_I
+-T
+There is nothing new here and the smell is so bad
+_T
+<S
+>O
+-D
+false
+-T
+campsite
+_T
+-I
+5
+1
+_I
+-T
+campsite been here
+_T
+<O
 <A
+

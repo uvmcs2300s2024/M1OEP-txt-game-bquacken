@@ -54,6 +54,10 @@ public:
      */
     explicit item(int pItemId);
 
+    /**
+     * blank constructor just sets
+     * numItem to 0
+     */
     item();
 
     /**

@@ -52,16 +52,32 @@ public:
      * adds a subarea to the subAreas vector
      * @param pSubArea the new subarea
      */
-    void addSubArea(SubArea pSubArea);
+    bool addSubArea(SubArea pSubArea);
 
+    /**
+     * adds a string to the optionsList
+     * @param option the string added to optionsList
+     */
     void addToOptionsList(string option);
 
-    void addMainText(string text);
+    /**
+     * sets optionsList to list
+     * @param list what becomes optionsList
+     * @return if the list was accepted
+     */
+    bool setOptionsList(vector<string> list);
 
-    void setOptionsList(vector<string> list);
-
+    /**
+     * gets the main text
+     * @return mainText
+     */
     string getMainText();
 
+    /**
+     * sets the mainText to text
+     * @param text what becomes mainText
+     */
+    void setMainText(string text);
 
 };
 

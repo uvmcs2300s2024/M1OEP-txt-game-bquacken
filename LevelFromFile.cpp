@@ -14,12 +14,16 @@ Area LevelFromFile::buildArea(std::string file) {
         while(line != "<A"){
             if(line == ">S"){
                 area.addSubArea(buildSubArea(inFile));
+                getline(inFile,line);
             }else if(line == ">O"){
                 area.addSubArea(buildOption(inFile));
+                getline(inFile,line);
             }else if(line == "-L"){
                 area.setOptionsList(readOptions(inFile));
+                getline(inFile,line);
             }else if(line == "-T"){
-                area.addMainText(readText(inFile));
+                area.setMainText(readText(inFile));
+                getline(inFile,line);
             }
         }
     }
@@ -31,6 +35,7 @@ SubArea LevelFromFile::buildSubArea(std::ifstream &inFile) {
     SubArea subarea = SubArea();
     getline(inFile,line);
     subarea.setAreaText(readText(inFile));
+    getline(inFile,line);
     bool consecutiveItems = false;
     int itemIndex = -1;
     while(line != "<S"){
@@ -48,7 +53,15 @@ SubArea LevelFromFile::buildSubArea(std::ifstream &inFile) {
                 subarea.addItem(itemIndex, readItem(inFile));
             }
             consecutiveItems = true;
+        }else if(line == "-D"){
+            getline(inFile,line);
+            if(line == "true"){
+                subarea.setDark(true);
+            }else{
+                subarea.setDark(false);
+            }
         }
+        getline(inFile,line);
     }
     return subarea;
 }
@@ -57,11 +70,22 @@ SubArea LevelFromFile::buildOption(std::ifstream &inFile) {
     string line;
     SubArea o;
     getline(inFile,line);
-    if(line == "-T"){
-        o.addToOptionsText(readText(inFile));
-    }else if(line == "-I"){
-        o.addItem(0,readItem(inFile));
+    while(line != "<O"){
+        if(line == "-T"){
+            o.addToOptionsText(readText(inFile));
+        }else if(line == "-I"){
+            o.addItem(0,readItem(inFile));
+        }else if(line == "-D"){
+            getline(inFile,line);
+            if(line == "true"){
+                o.setDark(true);
+            }else{
+                o.setDark(false);
+            }
+        }
+        getline(inFile,line);
     }
+
     return o;
 }
 

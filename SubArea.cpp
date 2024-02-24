@@ -15,15 +15,18 @@ SubArea::SubArea(std::string areaTxt, vector<std::string> options,
 
 }
 
-SubArea::SubArea(vector<item> items, string areaTxt, string areaTxtVisited) {
-    this -> items = items;
-    this -> options[0] = areaTxt;
-    this -> options[1] = areaTxtVisited;
+SubArea::SubArea(string areaTxt, string areaTxtVisited) {
+    optionsTxt.push_back(areaTxt);
+    optionsTxt.push_back(areaTxtVisited);
+    for(int i = 0; i < 3; i++){
+        items.push_back(item());
+    }
     isSearched.push_back(false);
 }
 
 SubArea::SubArea() {
     areaTxt = "NA";
+    isSearched.push_back(false);
     for(int i = 0; i < 24; i++){
         items.push_back(item());
     }
@@ -31,12 +34,17 @@ SubArea::SubArea() {
 }
 
 void SubArea::visit(player& p) {
-    cout << areaTxt << endl;
     bool active = true;
+    if(isDark && !p.getStuff().getStoredItems()[5].getNumItem()){
+        active = false;
+        cout << "It's too dark to see in here" << endl;
+        return;
+    }
+    cout << areaTxt << endl;
     while(active){
         char choice = input().actionMenu(options,p,false,true, true);
         if(choice == 'l'){
-            return;
+            active = false;
         }
         for(int i = 0; i < options.size(); i++){
             if(input().optionsKey[i] == choice){
@@ -47,14 +55,18 @@ void SubArea::visit(player& p) {
 }
 
 void SubArea::search(player& p, int lowerIndex) {
-    if(isSearched[lowerIndex]){
+    if(isDark && !p.getStuff().getStoredItems()[5].getNumItem()){
+        cout << "It's too dark to see in here" << endl;
+        return;
+    }
+    if(isSearched[lowerIndex/2]){
         cout << optionsTxt[lowerIndex + 1] << endl;
     }else{
         cout << optionsTxt[lowerIndex] << endl;
         if(items[(lowerIndex/2) * 3].getNumItem() != 0){
             cout << "You found: " << endl;
-            for(int i = 0; i < 3; i++){
-                if(items[i].getNumItem() != 0){
+            for(int i = (lowerIndex / 2) * 3; i <= (lowerIndex / 2) * 3 + 3; i++){
+                if(items[i * 3].getNumItem() != 0){
                     p.getStuff().pickUpItem(items[i]);
                     cout << items[i];
                 }
@@ -76,15 +88,6 @@ void SubArea::setOptionsList(vector<std::string> list) {
             isSearched.pop_back();
         }else{
             isSearched.push_back(false);
-        }
-    }
-    while(optionsTxt.size()/2 != options.size()){
-        if(optionsTxt.size()/2 > options.size()){
-            optionsTxt.pop_back();
-            optionsTxt.pop_back();
-        }else{
-            optionsTxt.push_back("a");
-            optionsTxt.push_back("b");
         }
     }
     while(items.size()/3 != options.size()){
@@ -150,5 +153,13 @@ vector<string> SubArea::getOptionsText() {
 
 vector<bool> SubArea::getIsSearched() {
     return isSearched;
+}
+
+void SubArea::setDark(bool dark) {
+    isDark = dark;
+}
+
+bool SubArea::getIsDark() {
+    return isDark;
 }
 
