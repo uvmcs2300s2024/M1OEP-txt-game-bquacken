@@ -132,5 +132,7 @@ bool levelFromFileTest(string file){
         cout << "Failed multiple items in buildSubArea" << endl;
         passed = false;
     }
+    player p = player();
+    a.run(p);
     return passed;
 }

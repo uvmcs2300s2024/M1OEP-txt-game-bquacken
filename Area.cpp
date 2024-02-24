@@ -13,6 +13,7 @@ Area::Area() {}
 
 void Area::run(player& p) {
     bool active = true;
+    cout << mainText << endl;
     while(active){
         char choice = input().actionMenu(options,p,true,true,false);
         for(int i = 0; i < options.size(); i++){

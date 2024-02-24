@@ -65,14 +65,14 @@ void SubArea::search(player& p, int lowerIndex) {
         cout << optionsTxt[lowerIndex] << endl;
         if(items[(lowerIndex/2) * 3].getNumItem() != 0){
             cout << "You found: " << endl;
-            for(int i = (lowerIndex / 2) * 3; i <= (lowerIndex / 2) * 3 + 3; i++){
-                if(items[i * 3].getNumItem() != 0){
+            for(int i = (lowerIndex / 2) * 3; i <= (lowerIndex / 2) * 3 + 2; i++){
+                if(items[i].getNumItem() != 0){
                     p.getStuff().pickUpItem(items[i]);
                     cout << items[i];
                 }
             }
         }
-        isSearched[lowerIndex] = true;
+        isSearched[lowerIndex/2] = true;
     }
 }
 
