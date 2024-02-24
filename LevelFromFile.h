@@ -1,3 +1,12 @@
+/**This is the code that reads a level from a text file there are a few
+ * special characters that are used to denote what is being added
+ * '>' is the open character for the area(A) subarea(S) option(O)
+ * '<' is the close for those three
+ * '-' is the open character for item(I) option list(L) text(T)
+ * '_' is the close for those three
+ * if you want an area to be dark add '-D' and then "true" on the next line
+ * look at the example document for the full formatting guide
+ */
 #ifndef TXT_GAME_BQUACKEN_LEVELFROMFILE_H
 #define TXT_GAME_BQUACKEN_LEVELFROMFILE_H
 

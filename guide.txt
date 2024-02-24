@@ -1,0 +1,107 @@
+>A <- this text file can not be used for building an area
+-T
+main text for area
+_T
+-L
+option a for area
+option b for area
+option c for area
+_L
+>S
+-T
+main text for sub area must be first thing in the subarea
+all text block can be more than one line
+_T
+-D
+true
+-L
+option a for subarea
+option b for subarea
+option c for subarea
+_L
+-T
+option a first visit text
+_T
+-I <- every option must have an item, but you can just add 0,0
+0
+1
+_I
+-T
+option a not first visit text
+_T
+-T
+option b first visit text
+_T
+-I
+1 <- ID of item you want to add(look in item.h for ID it's the index of the itemName)
+3 <- number of items you want to add
+_I
+-T
+option b not first visit text
+_T
+-T
+option c first visit text
+_T
+-I
+0
+0
+_I
+-T
+option c not first visit text
+_T
+<S
+>O
+-T
+option first visit text
+_T
+-I <- you don't need to have an item here unlike with subareas
+0
+3
+_I
+-T
+option not first visit text
+_T
+<O
+>S
+-T
+main text for sub area must be first thing in the subarea
+_T
+-D
+true
+-L
+option a for subarea
+option b for subarea
+option c for subarea
+_L
+-T
+option a first visit text
+_T
+-I <- every option must have an item, but you can just add 0,0
+0
+1
+_I
+-T
+option a not first visit text
+_T
+-T
+option b first visit text
+_T
+-I
+1
+3
+_I
+-T
+option b not first visit text
+_T
+-T
+option c first visit text
+_T
+-I
+0
+0
+_I
+-T
+option c not first visit text
+_T
+<S
+<A
