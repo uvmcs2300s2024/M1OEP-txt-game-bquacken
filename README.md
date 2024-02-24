@@ -1,43 +1,34 @@
 Ben Quackenbush Open Ended Project
 -------------------------------------------------------------------------------
+Welcome to my Open ended project for module 2. The upgrades I made to the 
+project for this module is creating a way for you to type up a file with 
+certain syntax that will be used to build a level there are two text files 
+already in the project that can build a level with the guid.txt file providing 
+more in depth explanation on how to use the program. The concepts used for 
+this is file input which takes the input from a file to build out the area.
+I also made SubArea.h a component class of Area.h within the subAreas vector.
+I also made inventory.h a component class of player.h to reduce the amount
+of parameters for a few functions and overall organization.
 -------------------------------------------------------------------------------
-Hello welcome to my Open ended project. 
-It is a small text based game that currently has one area(field) and one 
-sub-area(fortress) you play the game by selecting an option through the option 
-menu displayed it has full input validation.
-The concepts used from this module are c++ classes overloaded operators and 
-enumeration. you can see c ++ classes where I have created .h and .cpp files 
-for each of my objects this includes the inventory, items, field, and 
-player all working together and I use input to do all the input validation.
-The enumerated types are used for locations and items each creating a specific 
-data type for playerLocations, discoveredLocations, and itemType. I used 
-overloaded operators for comparing items and for printing out item and 
-inventory objects in a readable format this was very important as there 
-is a lot of printing out item objects and the inventory object.
+To expand the project I would try and create a way for different areas to 
+connect this would require more syntax within the LevelFromFile class 
+or an entirely different file that would outline the connections between areas
+would also require something similar to the -D for finding new maps that was 
+seen in my module 1 project.
 -------------------------------------------------------------------------------
-This project can easily be expanded on an example of this is either adding new 
-areas and instead of using a function to make the subarea I could use 
-subclasses. I could add visual elements with a map or a mor polished interface.
--------------------------------------------------------------------------------
-I think that I should earn 95 points for this project.
-
-Main Program complexity and usability - 40 pts: I used a mix of module 1 
-concepts with multiple classes interacting to create a small game demo
-
-Concept: c++ class - 20 pts: all of my classes were split into .h and .cpp
-files with thorough documentation in the header files and complex and useful
-code in the .cpp files. With all the classes coming together to make a 
-very organized main class that is easy to read.
-
-extra 35 - I feel that I went beyond project requirements in the scope and 
-complexity of the code because this game can be easily expanded because I fully
-made some of the classes instead of making a scripted game so that the game
-can be expanded.
--------------------------------------------------------------------------------
-there are no known bugs
--------------------------------------------------------------------------------
+I think I should be given a 100 as the complexity of the code required a lot 
+of debugging and troubleshooting combined with the scale of the file input
+that is being used. also because nothing was hard coded I needed to create 
+systems that would work under different conditions an example of this is the 
+system used to store items for subarea options and the text for subarea options
+because I wanted to be able to get 3 items per option and needed two types of 
+text per option as well and using a 2D array was very messy. So I used math each 
+time search is called in subarea.h it uses the lowerIndex to calculate what is 
+where so if an item is supposed to be assigned to option at index 2 it can be
+located at indexes six, seven, or eight a similar system is used for options 
+text
 -------------------------------------------------------------------------------
 all code written by me
 -------------------------------------------------------------------------------
+no known bugs 
 -------------------------------------------------------------------------------
-
