@@ -69,32 +69,96 @@ public:
      */
     //void setHasEncounter(bool hasEncounter);
 
+    /**
+     * returns if the optionsList is empty
+     * @return if the option list is empty
+     */
     bool getOptionsIsEmpty();
 
+    /**
+     * adds an item using the inputted choice index which is
+     * the index in optionsList of the chosen option that will
+     * give the player the item
+     * @param choiceIndex the optionsList index that the items
+     * go in
+     * @param thing the item added to the list
+     */
     void addItem(int choiceIndex, item thing);
 
+    /**
+     * adds a string to optionsList
+     * @param option the string added to the end of
+     * the list
+     */
     void addToOptionsList(string option);
 
+    /**
+     * sets optionsList to list
+     * @param list what options List becomes
+     */
     void setOptionsList(vector<string> list);
 
+    /**
+     * sets the options text to list
+     * @param list the new optionText
+     * @return if the list was accepted
+     */
     bool setOptionsText(vector<string> list);
 
+    /**
+     * adds a string to the end of optionsText
+     * @param text the string added to the end
+     * of the vector
+     */
     void addToOptionsText(string text);
 
+    /**
+     * sets the main text of the area
+     * @param text the new areaText
+     */
     void setAreaText(string text);
 
+    /**
+     * returns the areaText
+     * @return areaText
+     */
     string getAreaText();
 
+    /**
+     * returns the vector of items
+     * @return all items for the subarea
+     */
     vector<item> getItems();
 
+    /**
+     * returns optionsList
+     * @return optionsList
+     */
     vector<string> getOptionsList();
 
+    /**
+     * returns optionsText
+     * @return optionsText
+     */
     vector<string> getOptionsText();
 
+    /**
+     * returns the isSearched vector
+     * @return isSearched
+     */
     vector<bool> getIsSearched();
 
+    /**
+     * set if the subarea needs a lamp
+     * to see and interact
+     * @param dark if the area is dark
+     */
     void setDark(bool dark);
 
+    /**
+     * returns if the area is dark or not
+     * @return isDark
+     */
     bool getIsDark();
 
 };
